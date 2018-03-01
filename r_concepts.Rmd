@@ -55,3 +55,70 @@ Ha: sea creature is not
 Null is that there is no difference between our hypothesis and the data
 
 variance: (sigma)^2
+
+
+Examples:
+
+x = c(5, 6, 4, 6.5)
+y = c(2, 10, 7, 3, 5)
+x10 <- 10 *c(5, 6, 4, 6.5)
+
+```{r}
+x = c(5, 6, 4, 6.5)
+y = c(2, 10, 7, 3, 5)
+x10 <- 10 *c(5, 6, 4, 6.5)
+
+all <- c(x, y, x10)
+
+sd(x)
+sd(y)
+sd(x10)
+
+sds
+vars
+
+
+```
+
+
+What happens to the variance when I scale a measurement from 0→ 100 (mean = 50) to 0→ 1 (mean = 0.5)?
+
+  variance decrases because the range of values is smaller.  Scaling down measurement causes variance to decrease.
+  
+How does scaling measurements allow for a better comparison of the variances between principal components?
+
+  allows for easier comparison between PCs. let's you account for real variance in   the   data
+  
+Normal distributions
+```{r}
+vec <- seq(-1, 1, by = 0.01)
+plot(dnorm(vec, mean = 5, sd = 2))
+
+hist(rnorm(5000, mean = 5, sd = 2), breaks = 15)
+hist(rnorm(10000, mean = 5, sd = 2), breaks = 30)
+abline(hist(rnorm(10000, mean = 5, sd = 2), breaks = 30), v = c(3, 7), col = "red")
+```
+
+
+```{r}
+abs(pnorm(2, 5, 2) - pnorm(6, 5, 2)) *100
+```
+
+BUild a function to plot the normal distribuition:
+
+```{r}
+x = c(1:100)
+mean = 50
+stdev = 10
+coolnorm <- function(x,mean,stdev){
+      y = (1/stdev*2*pi)*(2.718)^(-((x-mean)^2)/(2*stdev)^2)
+      return(y)
+}
+plot(coolnorm(x,mean,stdev))
+
+
+```
+
+
+
+
