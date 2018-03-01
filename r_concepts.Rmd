@@ -154,6 +154,8 @@ lines(x, dt(x,degf[i]), lwd=2, col=colors[i])
 p-value: The p-value is the probability that two or more sets of measurements are from the same phenomenon.
 
 Z-Test:
+
+models the population
 ```{r}
 x1 = rnorm(31, mean = 4.5, sd = 0.2)
 
@@ -166,4 +168,43 @@ summary(ztest)
 ztest
 ztest$p.value
 ```
+
+T-tests:
+
+One-sample t-test: Used to compare a population mean to a t-distributed set of sample measurements
+  
+Two-sample t-test: The t-statistic and the t-distribution is used to compare two sets of sample measurements (n<30)
+
+```{r}
+x1 = c(2,3,2.4)
+
+#Use t.test() to determine whether x1 is part of a population
+#with a mean of 4. Find the t-statistic
+
+t.test(x1, mu = 4)
+```
+T distribution models the sample so the  we use the sd from the sample to calculate it
+
+Two-sample t-test:
+ - most commonly used statistical test in biology
+ - used to compare two t-distributed sets of measurements
+    - two sets of measurements that have limited numbers of measurements so that they       can ce compared
+
+```{r}
+x1 = c(2,3,2.4)
+x2 = c(4,5,8)
+
+t.test(x1, x2)
+```
+The population means are not significantly different from 0
+
+Two more examples:
+
+```{r}
+Test1 = t.test( c(8, 12, 9, 11), c(18, 19, 22, 21))
+Test1
+Test2 = t.test(c(8, 12, 9, 11), c(12, 12, 12))
+Test2
+```
+test1 rejects the null, but test2 doesn't
 
