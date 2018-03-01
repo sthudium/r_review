@@ -45,4 +45,13 @@ minimum input for a single layer scatter plot (ie. plot())
   
   this is also the minimum input for hist() and barplot()
   
-  
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Review of statistics
+
+Ho: the sea creature is the monster
+Ha: sea creature is not
+
+Null is that there is no difference between our hypothesis and the data
+
+variance: (sigma)^2
