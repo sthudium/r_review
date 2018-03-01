@@ -151,3 +151,19 @@ lines(x, dt(x,degf[i]), lwd=2, col=colors[i])
         labels, lwd=2, lty=c(1, 1, 1, 1, 2), col=colors)
 ```
 
+p-value: The p-value is the probability that two or more sets of measurements are from the same phenomenon.
+
+Z-Test:
+```{r}
+x1 = rnorm(31, mean = 4.5, sd = 0.2)
+
+##Use the z.test() function to test whether x1 lies within a normally distributed
+##population of mean 3 and standard deviation of 0.5
+
+ztest <- z.test(x1, mu = 3, stdev = 0.5)
+
+summary(ztest)
+ztest
+ztest$p.value
+```
+
