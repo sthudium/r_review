@@ -208,3 +208,57 @@ Test2
 ```
 test1 rejects the null, but test2 doesn't
 
+```{r}
+ctrlMoCApre <- c(24.75924, 26.98667, 24.94788, 27.73277, 26.32180, 24.33580, 23.93787)
+ctrlMoCApost <- c(25.53444, 29.59317, 27.64380, 24.93487, 28.18750, 28.66826, 25.12095)
+
+t.test(ctrlMoCApre, ctrlMoCApost)
+
+vidMoCaPre <- c(27.04761, 27.04171, 28.94454, 26.86962, 25.55325, 27.40797, 26.10106)
+vidMoCaPost <- c(30.00503, 29.29816, 27.00058, 28.77350, 29.11423, 30.94159, 28.30345)
+
+t.test(vidMoCaPre, vidMoCaPost)
+```
+
+steps for two sample t-test:
+
+• Consider two groups for which you obtain measurements.
+• Make the null hypothesis (H0) that there is no difference in the means of these two groups.
+• Make the alternate hypothesis (H1) that there is a difference.
+• Calculate the t-statistic first: In the numerator take the absolute value of the difference of the two group means.
+• In the denominator calculate the “noise”.
+• From the t-statistic obtain a probability value.
+
+
+Innacurate p-value
+small sample size --> measurements not representative of the population
+
+Type 1 error (alpha):
+ - The probability that you reject the
+null hypothesis when it is true
+
+- In other words, you think there is a difference (low p-value), when there actually is not one
+
+- The False Discovery Rate is the probability of committing Type 1 error, which is also the rate of false positives
+
+
+Type 2 error (beta):
+ - The probability that you will accept the
+null hypothesis when it is false
+
+ - In other words, you think there is no difference between data sets (p > 0.05), when there actually is a difference.
+
+ - The Power is 1-beta, or the probability that you will reject a null hypothesis when it is false
+ 
+False discovery rate:
+The false discovery rate (FDR) is a popular multiple corrections correction. A false positive (also called a type I error) is sometimes called a false discovery.
+FDR = number of false positives / number called significant
+
+t-test: power calculation
+- Power is the fraction of true positives that will be detected. It is a value between 0 and 1. The larger the sample size, the larger the power
+
+
+```{r}
+pwr.t.test(n = 22, sig.level = 0.05, d = 1, type = "two.sample")
+```
+
