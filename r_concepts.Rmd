@@ -1,0 +1,48 @@
+---
+title: "R Programming Review"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Frequently missed questions
+Using read.csv to find a particular file
+
+~/ for finding a file only needed when you are looking in the home directory.
+if you are in the working directory, then yo can just type the file name in quotes
+
+Select the correct ways to  extract a vector from a row in the data frame
+
+df[n, ]
+df["rowname", ]
+
+for columns:
+
+df[, n]
+df[, "colname"]
+df$colname
+
+
+What input data types can this function take?
+
+jal <- function(x) {
+ y = x^2
+ return(y)
+}
+
+Can take either a numeric or logical value as input without returning error
+
+Conversion between types of data tables in R
+ as.dataframe()
+ as.data.table()
+ as.matrix()
+ 
+ 
+minimum input for a single layer scatter plot (ie. plot())
+  a single numeric vector
+  
+  this is also the minimum input for hist() and barplot()
+  
+  
