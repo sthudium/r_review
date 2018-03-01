@@ -105,13 +105,14 @@ abs(pnorm(2, 5, 2) - pnorm(6, 5, 2)) *100
 ```
 
 BUild a function to plot the normal distribuition:
+Sample size is a big obstacle in creating a normal dist. --> if you don't have enough data points then it is going to be very difficult to conclude that the normal distribution is a good representation of the population
 
 ```{r}
 x = c(1:100)
 mean = 50
 stdev = 10
 coolnorm <- function(x,mean,stdev){
-      y = (1/stdev*2*pi)*(2.718)^(-((x-mean)^2)/(2*stdev)^2)
+      y = (1/stdev*sqrt(2*pi))*(exp(1))^(-((x-mean)^2)/(2*stdev)^2)
       return(y)
 }
 plot(coolnorm(x,mean,stdev))
@@ -120,5 +121,33 @@ plot(coolnorm(x,mean,stdev))
 ```
 
 
+COnfience interval
+```{r}
+norm <- hist(rnorm(10000, 5, 2))
+abline(plot(norm), v = c(3, 7), col = "red")
+```
 
+T distributions:
+
+At low sample sizes, the t-distribution more accurately estimates the shape of the probability distribution. The t-distribution tends toward the normal distribution when the sample size is large.
+
+As a rule of thumb, at less than 30 samples the sample mean and standard deviation does not accurately reflect the population mean.
+
+```{r}
+#Use dnorm() and dt() to plot the normal and t-distributions on the same graph
+
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+degf <- c(1, 3, 8, 30)
+colors <- c("red", "blue", "darkgreen", "gold", "black")
+labels <- c("df=1", "df=3", "df=8", "df=30", "normal")
+      
+plot(x, hx, type="l", lty=2, xlab="x value",
+        ylab="Density", main="Comparison of t Distributions")
+for (i in 1:4){
+lines(x, dt(x,degf[i]), lwd=2, col=colors[i])
+}
+      legend("topright", inset=.05, title="Distributions",
+        labels, lwd=2, lty=c(1, 1, 1, 1, 2), col=colors)
+```
 
