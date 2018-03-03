@@ -259,6 +259,19 @@ t-test: power calculation
 
 
 ```{r}
-pwr.t.test(n = 22, sig.level = 0.05, d = 1, type = "two.sample")
+pwr.t.test( sig.level = 0.05, d = 1, power = 0.9, type = "two.sample")
+```
+
+NOTE: a power of 0.8 for a sig level of 0.05 is good
+
+```{r}
+
+     effect_size <- function(m1,m2,s1,s2,n1,n2)
+     {
+       #Cohen's method (1988), effect size is called Cohen's d
+       pooled_sd = sqrt(((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2))
+       d = abs(m1-m2)/pooled_sd
+       return(d)
+}
 ```
 
