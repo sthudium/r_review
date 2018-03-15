@@ -39,6 +39,8 @@ Conversion between types of data tables in R
  as.data.table()
  as.matrix()
  
+ (5 * 1.86) - (6)
+ 
  
 minimum input for a single layer scatter plot (ie. plot())
   a single numeric vector
